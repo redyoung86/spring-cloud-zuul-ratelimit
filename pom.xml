@@ -19,7 +19,7 @@
         ]]>
     </description>
     <url>https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit</url>
-    <version>1.7.2.RELEASE</version>
+    <version>1.7.5.RELEASE</version>
 
     <licenses>
         <license>
@@ -99,14 +99,14 @@
 
     <modules>
         <module>spring-cloud-zuul-ratelimit-core</module>
-        <module>spring-cloud-zuul-ratelimit-tests/consul</module>
-        <module>spring-cloud-zuul-ratelimit-tests/springdata</module>
-        <module>spring-cloud-zuul-ratelimit-tests/inmemory</module>
-        <module>spring-cloud-zuul-ratelimit-tests/redis</module>
-        <module>spring-cloud-zuul-ratelimit-tests/bucket4j-jcache</module>
-        <module>spring-cloud-zuul-ratelimit-tests/bucket4j-hazelcast</module>
-        <module>spring-cloud-zuul-ratelimit-tests/bucket4j-ignite</module>
-        <module>spring-cloud-zuul-ratelimit-tests/bucket4j-infinispan</module>
+        <!--<module>spring-cloud-zuul-ratelimit-tests/consul</module>-->
+        <!--<module>spring-cloud-zuul-ratelimit-tests/springdata</module>-->
+        <!--<module>spring-cloud-zuul-ratelimit-tests/inmemory</module>-->
+        <!--<module>spring-cloud-zuul-ratelimit-tests/redis</module>-->
+        <!--<module>spring-cloud-zuul-ratelimit-tests/bucket4j-jcache</module>-->
+        <!--<module>spring-cloud-zuul-ratelimit-tests/bucket4j-hazelcast</module>-->
+        <!--<module>spring-cloud-zuul-ratelimit-tests/bucket4j-ignite</module>-->
+        <!--<module>spring-cloud-zuul-ratelimit-tests/bucket4j-infinispan</module>-->
         <module>spring-cloud-zuul-ratelimit-coverage</module>
         <module>spring-cloud-zuul-ratelimit-dependencies</module>
         <module>spring-cloud-starter-zuul-ratelimit</module>
@@ -185,8 +185,10 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <!--<id>ossrh</id>-->
+            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+            <id>releases</id>
+            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
 

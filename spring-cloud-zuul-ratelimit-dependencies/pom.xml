@@ -7,7 +7,7 @@
 
     <groupId>com.marcosbarbero.cloud</groupId>
     <artifactId>spring-cloud-zuul-ratelimit-dependencies</artifactId>
-    <version>1.7.2.RELEASE</version>
+    <version>1.7.5.RELEASE</version>
     <packaging>pom</packaging>
     <url>https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit</url>
 
@@ -67,8 +67,10 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <!--<id>ossrh</id>-->
+            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+            <id>releases</id>
+            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
 
