@@ -23,6 +23,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Marcos Barbero
  * @author Liel Chayoun
@@ -44,6 +46,9 @@ public class RedisRateLimiter extends AbstractCacheRateLimiter {
             Long current = 0L;
             try {
                 current = this.redisTemplate.boundValueOps(key).increment(usage);
+                if(current == 1){
+                    this.redisTemplate.expire(key, refreshInterval, TimeUnit.SECONDS);
+                }
             } catch (RuntimeException e) {
                 String msg = "Failed retrieving rate for " + key + ", will return limit";
                 rateLimiterErrorHandler.handleError(msg, e);
@@ -62,6 +67,9 @@ public class RedisRateLimiter extends AbstractCacheRateLimiter {
             Long current = 0L;
             try {
                 current = this.redisTemplate.boundValueOps(quotaKey).increment(usage);
+                if(current == usage){
+                    this.redisTemplate.expire(key, refreshInterval, TimeUnit.SECONDS);
+                }
             } catch (RuntimeException e) {
                 String msg = "Failed retrieving rate for " + quotaKey + ", will return quota limit";
                 rateLimiterErrorHandler.handleError(msg, e);
